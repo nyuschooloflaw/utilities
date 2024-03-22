@@ -25,12 +25,12 @@ With Sectigo, you register your client by authenticating to an existing Sectigo 
 ### Configure for ACME
 
 > [!TIP]
-> It is recommended to create separate accounts for different system types, environments (e.g. Production, QA), etc.
+> Create separate accounts for different system types, environments, etc. (e.g. Production vs QA, Kubernetes vs IIS)
 
 **Setup an ACME account:**
 
  1. Login to the NYU Certificate Manager (InCommon) and navigate to *Enrollment > ACME*.
- 2. Select the *Universal ACME* endpoint (https://acme.enterprise.sectigo.com) and click *Accounts*.
+ 2. Select the *Universal ACME* endpoint and click *Accounts*.
  3. Click the *green plus* icon to add an account.
  4. Enter a descriptive name (e.g. `Production IIS`, or `QA Kubernetes`).
  5. Ensure *Organization* has `New York University` selected, and *Department* has, e.g. `School of Law` selected.
@@ -59,9 +59,9 @@ For support and to request accounts, contact keymaster@nyu.edu.
 
 Documentation and support articles
 
-https://spaces.at.internet2.edu/display/ICCS/InCommon+Certificate+Service+Home
-https://sectigo.com/knowledge-base/detail/Sectigo-Certificate-Manager-SCM-ACME-error-The-client-lacks-sufficient-authorization/kA03l00000117Sy
-https://sectigo.status.io/
+ - https://spaces.at.internet2.edu/display/ICCS/InCommon+Certificate+Service+Home
+ - https://sectigo.com/knowledge-base/detail/Sectigo-Certificate-Manager-SCM-ACME-error-The-client-lacks-sufficient-authorization/kA03l00000117Sy
+ - https://sectigo.status.io/
 
 #### Known Issues
 
@@ -102,8 +102,8 @@ https://certifytheweb.com
 
  1. Login to NYU Certificate Manager.
  2. Go to *Enrollment > ACME*.
- 3. Check *Universal ACME*, then click *Accounts*.
- 4. Check your pre-configured account, then click *Details*.
+ 3. Select *Universal ACME*, then click *Accounts*.
+ 4. Select your pre-configured account, then click *Details*.
  5. Copy **ACME URL**, **Key ID**, and **HMAC Key**.
 
 **Add NYU CA**
@@ -134,7 +134,7 @@ https://certifytheweb.com
  2. For Preferred Certificate Authority, select NYU Certificate Manager.
 
 > [!TIP] 
-> The preferred CA can be set on a per-certificate basis.  This is helpful when a server hosts multiple services with a mix of nyu.edu subdomains and non-NYU domains.
+> The preferred CA can be set on a per-certificate basis.  This is helpful when a server hosts multiple services with a mix of nyu.edu subdomains and non-NYU domains requiring the use of both NYU Certificate Authority and Let's Encrypt.
 
 **Request Certificate using NYU Certificate Authority**
 
@@ -161,7 +161,7 @@ Certbot can be [downloaded](https://certbot.eff.org/) from their website, or ins
 As noted elsewhere, Sectigo provides a sample certbot command when viewing the ACME Account Details page.  This can be copied and used after changing only a couple values.  
 
 **Example**
-```bash
+```Shell
 certbot certonly --standalone --non-interactive --agree-tos \
 --email certificate.management@law.nyu.edu \
 --server https://acme.enterprise.sectigo.com \
