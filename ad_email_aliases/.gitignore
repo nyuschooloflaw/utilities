@@ -1,0 +1,17 @@
+# macOS filesystem nonsense
+.DS_Store
+
+# Python Virtual Environment
+*.venv
+
+# ENV 
+*.env
+
+# Google Credentials
+*.json
+
+# CSV output
+*.csv
+
+# Logs
+*.log
