@@ -27,6 +27,9 @@ https://www.githubstatus.com
 ## NYU IT
 https://nyu.edu/it/status
 
+## Panopto
+https://trust.panopto.com
+
 ## Rapid7 InsightVM
 https://status.rapid7.com
 
